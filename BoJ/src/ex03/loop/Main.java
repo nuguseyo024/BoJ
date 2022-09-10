@@ -6,19 +6,27 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int T = sc.nextInt();
-		int arr[] = new int[T];
+		int total = sc.nextInt();
+		int cnt = sc.nextInt();
+
+		int arr[] = new int[cnt];
+		int sum = 0;
 		
-		for(int i = 0; i < T ; i++) {
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			arr[i] = a+b;			
+		for(int i = 0; i < cnt; i++) {
+			int goods = sc.nextInt();
+			int count = sc.nextInt();
+			
+			arr[i] = goods * count ;
+			sum += arr[i];
 		}
+		
+		if(sum == total) {
+			System.out.println("Yes");
+		} else {
+			System.out.println("No");
+		}	
+		
 		sc.close();
-		
-		for(int i = 0; i < T; i++) {
-			System.out.println(arr[i]);
-		}
 	}
 
 }
