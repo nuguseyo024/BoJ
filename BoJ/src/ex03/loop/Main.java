@@ -1,17 +1,29 @@
 package ex03.loop;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int sum = 0;
-		for (int i = 1; i < n+1 ; i ++) {
-			sum += i;
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int N = Integer.parseInt(br.readLine());
+		
+		StringTokenizer st;
+		
+		for(int i = 0; i < N; i++) {
+			st = new StringTokenizer(br.readLine()," ");
+			bw.write((Integer.parseInt(st.nextToken()) 
+					+ Integer.parseInt(st.nextToken())) + "\n");
 		}
-		System.out.println(sum);
-		sc.close();
+		br.close();
+		bw.flush();
+		bw.close();
 	}
 }
