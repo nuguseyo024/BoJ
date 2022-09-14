@@ -9,8 +9,8 @@ import java.util.StringTokenizer;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		int testcase = Integer.parseInt(br.readLine());
 		
@@ -18,12 +18,16 @@ public class Main {
 		
 		for(int i = 1; i <= testcase; i++) {
 			st = new StringTokenizer(br.readLine()," ");
-			int sum = Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken());
-			bw.write("Case #"+i+": "+sum+"\n");
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+            
+			bw.write("Case #"+i+": ");
+			bw.write(a+" + ");
+			bw.write(b+" = ");
+			bw.write(a+b+"\n");
 		}
-		
-		br.close();
 		bw.flush();
 		bw.close();
+		br.close();
 	}
 }
