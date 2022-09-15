@@ -9,21 +9,18 @@ import java.util.StringTokenizer;
 public class Main {
 
 	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st;
+		String input = "";
+		int a = 0;
+		int b = 0;
 		
-		while(true) {
-			st = new StringTokenizer(br.readLine()," ");
-			
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			
-			if(a!=0 && b!=0) {
-				bw.write(a+b+"\n");
-			}else if(a==0 && b==0) {
-				break;
-			}
+		while((input=br.readLine())!=null) {
+			st = new StringTokenizer(input," ");
+			a = Integer.parseInt(st.nextToken());
+			b = Integer.parseInt(st.nextToken());
+			bw.write(a+b+"\n");
 		}
 		bw.flush();
 		bw.close();
