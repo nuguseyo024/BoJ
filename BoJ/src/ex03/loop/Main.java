@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Main {
 
@@ -11,18 +12,19 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
-		int num = Integer.parseInt(br.readLine());
-		for(int i = num-1; i >= 0; i--) {
-			for(int k = 1; k <= i; k++) {
-				bw.write(" ");
-				//System.out.print(" ");
+		StringTokenizer st;
+		st = new StringTokenizer(br.readLine()," ");
+		int num = Integer.parseInt(st.nextToken());
+		int x = Integer.parseInt(st.nextToken());
+		int[] arr = new int[num];
+		
+		st = new StringTokenizer(br.readLine()," ");
+		for(int i = 0; i < num; i++) {
+			arr[i] = Integer.parseInt(st.nextToken());	
+			if(arr[i] < x) {
+				bw.write(arr[i]+" ");
 			}
-			for(int j = 1; j<=num-i; j++) {
-				bw.write("*");
-				//System.out.print("*");
-			}
-			bw.write("\n");
-			//System.out.println();
+			
 		}
 		bw.flush();
 		bw.close();
