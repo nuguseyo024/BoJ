@@ -10,22 +10,28 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st = new StringTokenizer(br.readLine()," ");
 		
-		int n = Integer.parseInt(st.nextToken());
+		
+		int n = 0;
+		int[] arr = new int[9];
+		
 		int max = 0;
-		int min = 0;
+		int max_idx = 0;
 		
-		st = new StringTokenizer(br.readLine());
-		int[] arr = new int[n];
-		for(int i = 0; i < arr.length ; i++) {					
-			arr[i] = Integer.parseInt(st.nextToken());		
+		for(int i = 0; i < 9; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			n = Integer.parseInt(st.nextToken());
+			arr[i] = n;
+			
+			if(arr[i] > max) {
+				max = arr[i];
+				max_idx = i+1;
+			}
 		}
-		Arrays.sort(arr);
-		min = arr[0];
-		max = arr[n-1];
+		bw.write(max+"\n"+max_idx);
 		
-		bw.write(min + " " + max);
+
+		
 		bw.flush();
 		bw.close();
 		br.close();
