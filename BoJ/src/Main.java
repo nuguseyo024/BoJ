@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -10,27 +10,21 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		StringTokenizer st;
 		
+		final int N = 42;
+		int[] arr = new int[10];
 		
-		int n = 0;
-		int[] arr = new int[9];
+		HashSet<Integer> set = new HashSet<Integer>();
 		
-		int max = 0;
-		int max_idx = 0;
-		
-		for(int i = 0; i < 9; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			n = Integer.parseInt(st.nextToken());
-			arr[i] = n;
+		for(int i = 0; i < arr.length; i++) {
+			st = new StringTokenizer(br.readLine());
+			arr[i] = Integer.parseInt(st.nextToken());
+			set.add(arr[i] % N);
 			
-			if(arr[i] > max) {
-				max = arr[i];
-				max_idx = i+1;
-			}
 		}
-		bw.write(max+"\n"+max_idx);
 		
-
+		bw.write(Integer.toString(set.size()));
 		
 		bw.flush();
 		bw.close();
