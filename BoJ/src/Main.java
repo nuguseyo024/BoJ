@@ -9,10 +9,19 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		char ch = st.nextToken().charAt(0);
-		int num = (int)ch;
+		int n = Integer.parseInt(st.nextToken());
+		int sum = 0;
 		
-		bw.write(Integer.toString(num));
+		st = new StringTokenizer(br.readLine());
+		String str = st.nextToken();
+		
+		for(int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			int num = Character.getNumericValue(ch);
+			sum += num;
+		}
+		bw.write(Integer.toString(sum));
+		
 		bw.flush();
 		bw.close();
 		br.close();
