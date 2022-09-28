@@ -12,7 +12,7 @@ public class Ch02_Variable {
 		x = y;
 		y = z;
 		z = tmp;
-		
+		 
 		
 		System.out.println("x=" + x);
 		System.out.println("y=" + y);
