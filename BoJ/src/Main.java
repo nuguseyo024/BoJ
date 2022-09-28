@@ -8,25 +8,28 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
 		
-		int testcase = Integer.parseInt(st.nextToken());
-		for(int i = 0 ; i < testcase; i++) {
-			st = new StringTokenizer(br.readLine()," ");
-			int n = Integer.parseInt(st.nextToken());
-			String str = st.nextToken();
-			String[] arr = new String[str.length()];
-			
-			for(int j = 0; j < str.length(); j++) {
-				arr[j] = str.substring(j,j+1);
-				
-				for(int k = 0; k < n; k++) {
-					
-					System.out.print(arr[j]);
-				}
-			}
-			System.out.println();			
-		}
+//		String a = new StringBuilder(st.nextToken()).reverse().toString();
+//		String b = new StringBuilder(st.nextToken()).reverse().toString();
+//		System.out.println(a+" "+b);
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		
+		int a1 = a / 100;
+		int a2 = (a - (a1*100)) / 10;
+		int a3 = (a - (a1*100) - (a2*10));	
+		int newA = (a3 * 100) + (a2 * 10) + a1;
+		
+		int b1 = b / 100;
+		int b2 = (b - (b1*100)) / 10;
+		int b3 = (b - (b1*100) - (b2*10));
+		
+		int newB = (b3 * 100) + (b2 * 10) + b1;
+		
+		int big = (newA > newB)? newA: newB;
+		bw.write(Integer.toString(big));
+		
 		
 		bw.flush();
 		bw.close();
