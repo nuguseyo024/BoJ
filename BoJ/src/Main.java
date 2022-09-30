@@ -1,59 +1,54 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
 
 public class Main {
+	
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	
 	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		String str = st.nextToken();
-		char[] ch = new char[str.length()];
-		int[] num = new int[str.length()];
-		int sum = 0;
-		
-		for(int i = 0; i< str.length(); i++) {
-			ch[i] = str.charAt(i);
-			if(ch[i]=='A'||ch[i]=='B'||ch[i]=='C') {
-				num[i] = 2;
-			}else if(ch[i]=='D'||ch[i]=='E'||ch[i]=='F') {
-				num[i] = 3;
-			}else if(ch[i]=='G'||ch[i]=='H'||ch[i]=='I') {
-				num[i] = 4;
-			}else if(ch[i]=='J'||ch[i]=='K'||ch[i]=='L') {
-				num[i] = 5;
-			}else if(ch[i]=='M'||ch[i]=='N'||ch[i]=='O') {
-				num[i] = 6;
-			}else if(ch[i]=='P'||ch[i]=='Q'||ch[i]=='R'||ch[i]=='S') {
-				num[i] = 7;
-			}else if(ch[i]=='T'||ch[i]=='U'||ch[i]=='V') {
-				num[i] = 8;
-			}else if(ch[i]=='W'||ch[i]=='X'||ch[i]=='Y'||ch[i]=='Z') {
-				num[i] = 9;
-			}else {
-				num[i] = 1;
+		int count = 0;
+		int N = Integer.parseInt(br.readLine());
+		for(int i = 0; i < N; i++) {
+			if(check() == true) {
+				count++;
 			}
-			sum += (num[i]+1);
 		}
+		System.out.println(count);
 		
-		bw.write(Integer.toString(sum));
-		
-		
-		bw.flush();
-		bw.close();
 		br.close();
 		
 	}
+	
+	public static boolean check() throws IOException {
+		boolean[] check = new boolean[26];
+		int prev = 0;
+		String str = br.readLine();
+		
+		for(int i = 0; i< str.length(); i++) {
+			int now = str.charAt(i);
+			// i번째 문자 저장 (현재 문자) 
+			
+			if(prev != now) {	// 앞선 문자와 i번째 문자가 같지 않다면?
+				if(check[now-'a'] == false) {  // 해당 문자가  처음 나오는 경우(false인 경우) 
+					check[now-'a'] = true;		// true로 바꿔준다.
+					prev = now;					// 다은 턴을 위해 prev도 바꿔준다. 
+					
+				}
+				else { // 해당 문자가 이미 나온 적이 있는 경우 (그룹단어 x)
+					return false; // 함수 종료 
+				}
+			}
+			
+			// 앞선 문자와 i번째 문자가 같다면? (연속된 문자)
+			else {		// else문 생략 가능 
+				continue;
+			}	
+		}
+		return true;
+		
+	}
 }
-
-//전화를 걸고 싶은 번호가 있다면, 숫자를 하나를 누른 다음에 금속 핀이 있는 곳 까지 시계방향으로 돌려야 한다. 
-//숫자를 하나 누르면 다이얼이 처음 위치로 돌아가고, 다음 숫자를 누르려면 다이얼을 처음 위치에서 다시 돌려야 한다.
-//숫자 1을 걸려면 총 2초가 필요하다. 1보다 큰 수를 거는데 걸리는 시간은 이보다 더 걸리며, 한 칸 옆에 있는 숫자를 걸기 위해선 1초씩 더 걸린다.
-//상근이의 할머니는 전화 번호를 각 숫자에 해당하는 문자로 외운다. 즉, 어떤 단어를 걸 때, 각 알파벳에 해당하는 숫자를 걸면 된다. 
-//예를 들어, UNUCIC는 868242와 같다.
-//할머니가 외운 단어가 주어졌을 때, 이 전화를 걸기 위해서 필요한 최소 시간을 구하는 프로그램을 작성하시오.
 
 
