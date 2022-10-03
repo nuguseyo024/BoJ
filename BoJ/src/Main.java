@@ -11,9 +11,9 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {
 		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		double res = (double)Integer.parseInt(st.nextToken()) / Integer.parseInt(st.nextToken());
+		int res = Integer.parseInt(st.nextToken()) - Integer.parseInt(st.nextToken());
 		
-		bw.write(Double.toString(res));
+		bw.write(Integer.toString(res));
 		bw.flush();
 		bw.close();
 		br.close();
