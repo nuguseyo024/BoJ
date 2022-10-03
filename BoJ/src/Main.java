@@ -11,13 +11,12 @@ public class Main {
 	
 	
 	public static void main(String[] args) throws Exception {
-		int n = Integer.parseInt(br.readLine());
-		for(int i = 0; i < n; i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine(),",");
-			int res = Integer.parseInt(st.nextToken()) + Integer.parseInt(st.nextToken());
-			bw.write(Integer.toString(res)+"\n");
-		}
+		StringTokenizer st = new StringTokenizer(br.readLine()," ");
 		
+		int res = Integer.parseInt(st.nextToken()) * Integer.parseInt(st.nextToken());
+		
+		
+		bw.write(Integer.toString(res));
 		bw.flush();
 		bw.close();
 		br.close();
