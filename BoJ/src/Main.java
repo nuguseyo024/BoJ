@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
 
 public class Main {
 	
@@ -11,10 +10,10 @@ public class Main {
 	
 	
 	public static void main(String[] args) throws Exception {
-		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		int res = Integer.parseInt(st.nextToken()) - Integer.parseInt(st.nextToken());
+		int a = Integer.parseInt(br.readLine());
+		int b = Integer.parseInt(br.readLine());
 		
-		bw.write(Integer.toString(res));
+		bw.write(Integer.toString(a+b));
 		bw.flush();
 		bw.close();
 		br.close();
