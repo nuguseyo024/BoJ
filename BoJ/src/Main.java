@@ -11,9 +11,10 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {
 		StringTokenizer st = new StringTokenizer(br.readLine()," ");		
-		long res = Long.parseLong(st.nextToken()) + Long.parseLong(st.nextToken());
-
-		bw.write(Long.toString(res));
+		int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        
+		bw.write(a/b+"\n");
 		bw.flush();
 		bw.close();
 		br.close();
