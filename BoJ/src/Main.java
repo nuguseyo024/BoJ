@@ -10,11 +10,15 @@ public class Main {
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	
 	public static void main(String[] args) throws Exception {
-		StringTokenizer st = new StringTokenizer(br.readLine()," ");		
-		int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
+		StringTokenizer st = new StringTokenizer(br.readLine());		
+		int n = Integer.parseInt(st.nextToken());
         
-		bw.write(a/b+"\n");
+		for(int i = 1; i<= n; i++) {
+			bw.write(Integer.toString(i));
+			bw.write("\n");
+		}
+		
+		
 		bw.flush();
 		bw.close();
 		br.close();
