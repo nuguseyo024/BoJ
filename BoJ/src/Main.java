@@ -2,44 +2,36 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
+import java.util.Arrays;
 
-public class Main { 
+public class Main {
 
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 	public static void main(String[] args) throws Exception {
-		StringTokenizer st = new StringTokenizer(br.readLine()," ");
-		int a = Integer.parseInt(st.nextToken());
-		int b = Integer.parseInt(st.nextToken());
-		int c = Integer.parseInt(st.nextToken());
-		int res = 0;
-
-		if(a >= b) {
-			if(a >= c) {
-				if(b >= c) {
-					res = b;
-				}else if( c >= b) {
-					res = c;
-				}
-			}else if( c >= a) {
-				res = a;
-			}
-		}else if(b >= a) {
-			if(b >= c) {
-				if(c >= a) {
-					res = c;
-				}else if(a >= c) {
-					res = a;
-				}
-			}else if(c >= b) {
-				res = b;
-			}
+		int[] burgers = new int[3];
+		for(int i = 0; i < 3; i++) {
+			burgers[i] = Integer.parseInt(br.readLine());
 		}
 
- 
-		bw.write(Integer.toString(res));
+		int[] drinks = new int[2];
+		for(int i = 0; i < 2; i++) {
+			drinks[i] = Integer.parseInt(br.readLine());
+		}
+
+		int[] sets = new int[6];
+
+
+		sets[0] = burgers[0]+drinks[0] -50 ;
+		sets[1] = burgers[0]+drinks[1] -50 ;
+		sets[2] = burgers[1]+drinks[0] -50 ;
+		sets[3] = burgers[1]+drinks[1] -50 ;
+		sets[4] = burgers[2]+drinks[0] -50 ;
+		sets[5] = burgers[2]+drinks[1] -50 ;
+
+		Arrays.sort(sets);
+		bw.write(Integer.toString(sets[0]));
 		bw.flush();
 		bw.close();
 		br.close();
