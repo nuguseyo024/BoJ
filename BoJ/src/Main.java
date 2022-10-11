@@ -3,25 +3,27 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Main {
+public class Main
+{
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    public static void main(String[] params) throws Exception
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-	public static void main(String[] args) throws Exception {
-		int n = Integer.parseInt(br.readLine());
-		for(int i = 1; i <= n; i++) { // 0 1 2 3 4
-			for(int j = n-1; j >= i; j-- ) { // 4 3 2 1 0
-				System.out.print(" ");
-			}
-			for(int j = 0; j < i*2-1; j++) {
-				System.out.print("*");
-			}
-			System.out.println();
+        int n = Integer.parseInt(br.readLine());
+        bw.write(Integer.toString(fib(n)));
 
-		}
-		bw.flush();
-		bw.close();
-		br.close();
-	}
+        bw.flush();
+        bw.close();
+        br.close();
+    }
+
+    static int fib(int n) {
+        if(n == 0) return 0;
+        if(n == 1) return 1;
+
+        return fib(n-1)+fib(n-2);
+    }
+
 }
